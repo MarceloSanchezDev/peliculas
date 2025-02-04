@@ -6,7 +6,4 @@ export default defineConfig({
   build: {
     outDir: 'dist',  // Carpeta de salida
   },
-  server: {
-    port: 5173,  // Puerto de desarrollo
-  },
 });

@@ -7,10 +7,10 @@ function App() {
   const handlerSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, user);
+    console.log("FrontEnd", email, user);
 
     try {
-      const response = await fetch("/auth/mensaje", {
+      const response = await fetch("/api/auth/mensaje", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

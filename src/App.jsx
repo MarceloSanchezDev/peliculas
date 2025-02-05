@@ -58,15 +58,17 @@ function App() {
     <>
       <h1>Hola, Bienvenidos A Peliculas App Web!</h1>
       <form onSubmit={handlerSubmitLogin}>
-        <label htmlFor="nombre">Nombre</label>
+        <label htmlFor="nombre">Nombre:</label>
         <input
           type="text"
           name="nombre"
+          id="nombre"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="apellido">Apellido</label>
+        <label htmlFor="apellido">Apellido:</label>
         <input
           type="text"
+          id="apellido"
           name="apellido"
           onChange={(e) => setUser(e.target.value)}
         />
@@ -77,11 +79,13 @@ function App() {
         <input
           type="text"
           name="nombre"
+          id="nombre"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="apellido">Apellido</label>
+        <label htmlFor="apellido">Apellido:</label>
         <input
           type="text"
+          id="apellido"
           name="apellido"
           onChange={(e) => setUser(e.target.value)}
         />

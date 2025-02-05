@@ -24,7 +24,9 @@ function App() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
-        alert(data.email, data.user);
+        alert(
+          `nombre : ${data.email}, apellido : ${data.user} , mensaje : ${data.mensaje}`
+        );
       }
     } catch (error) {
       console.error("Error en la petición:", error);

@@ -21,9 +21,10 @@ function App() {
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-
       const data = await response.json(); // Convertir la respuesta a JSON
-      console.log("Respuesta del servidor:", data);
+      if (response.ok) {
+        console.log("Respuesta del servidor:", data);
+      }
     } catch (error) {
       console.error("Error en la petición:", error);
     }

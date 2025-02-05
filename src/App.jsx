@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import { LoginForm } from "./components/LoginForm";
+import { RegisterForm } from "./components/RegisterForm";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -63,40 +65,16 @@ function App() {
   return (
     <>
       <h1>Hola, Bienvenidos A Peliculas App Web!</h1>
-      <form onSubmit={handlerSubmitLogin}>
-        <label htmlFor="nombreRegister">Nombre:</label>
-        <input
-          type="text"
-          name="nombreRegister"
-          id="nombreRegister"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="apellidoRegister">Apellido:</label>
-        <input
-          type="text"
-          id="apellidoRegister"
-          name="apellidoRegister"
-          onChange={(e) => setUser(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
-      <form onSubmit={handlerSubmitRegister}>
-        <label htmlFor="nombreLogin">Nombre:</label>
-        <input
-          type="text"
-          name="nombreLogin"
-          id="nombreLogin"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="apellidoLogin">Apellido:</label>
-        <input
-          type="text"
-          id="apellidoLogin"
-          name="apellidoLogin"
-          onChange={(e) => setUser(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
+      <LoginForm
+        funct={handlerSubmitLogin}
+        setEmail={setEmail}
+        setUser={setUser}
+      />
+      <RegisterForm
+        funct={handlerSubmitRegister}
+        setEmail={setEmail}
+        setUser={setUser}
+      />
     </>
   );
 }

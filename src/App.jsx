@@ -10,7 +10,7 @@ function App() {
     console.log(email, user);
 
     try {
-      const response = await fetch("/auth/login", {
+      const response = await fetch("/auth/mensaje", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

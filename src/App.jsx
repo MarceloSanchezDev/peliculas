@@ -24,7 +24,7 @@ function App() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
-        alert(data);
+        alert(data.email, data.user);
       }
     } catch (error) {
       console.error("Error en la petición:", error);
@@ -50,7 +50,7 @@ function App() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
-        alert(data);
+        alert(data.email, data.user);
       }
     } catch (error) {
       console.error("Error en la petición:", error);

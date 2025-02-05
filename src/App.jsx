@@ -24,6 +24,7 @@ function App() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
+        alert(data);
       }
     } catch (error) {
       console.error("Error en la petición:", error);
@@ -49,6 +50,7 @@ function App() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
+        alert(data);
       }
     } catch (error) {
       console.error("Error en la petición:", error);
@@ -75,7 +77,7 @@ function App() {
         <input type="submit" />
       </form>
       <form onSubmit={handlerSubmitRegister}>
-        <label htmlFor="nombreLogin">Nombre</label>
+        <label htmlFor="nombreLogin">Nombre:</label>
         <input
           type="text"
           name="nombreLogin"

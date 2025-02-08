@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error("Error en login:", error);
-    return res.status(500).json({ error: "Error en el servidor" });
+    return res.status(500).json({ error: "Error en el servidor", error2 : error });
   }
 }
 

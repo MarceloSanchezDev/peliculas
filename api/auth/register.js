@@ -1,5 +1,5 @@
 import {validRegisterUser} from '../schema/userSchema.js'
-import UserModel from '../models/turso/users.js'
+import { UserModel } from '../models/turso/users.js'
 import jwt from 'jsonwebtoken';
 
 const SECRET_KEY = process.env.SECRET_KEY;

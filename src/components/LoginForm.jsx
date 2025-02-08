@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import swal from "sweetalert2";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,12 +23,21 @@ export function LoginForm() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
-        alert(
-          `email : ${data.email}, password : ${data.password} , mensaje : ${data.mensaje}`
-        );
+        swal.fire({
+          title: "Succes!",
+          text: "Perfecto, estas dentro",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
       }
     } catch (error) {
       console.error("Error en la petición:", error);
+      swal.fire({
+        title: "Error al Iniciar Sesion",
+        text: `${e.response.data.error}`,
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
   return (

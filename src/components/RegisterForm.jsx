@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import swal from "sweetalert2";
 export function RegisterForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -24,12 +24,21 @@ export function RegisterForm() {
       const data = await response.json(); // Convertir la respuesta a JSON
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
-        alert(
-          `email : ${data.email}, username : ${data.username} , mensaje : ${data.mensaje}`
-        );
+        swal.fire({
+          title: "Succes!",
+          text: "Perfecto, estas dentro",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
       }
     } catch (error) {
       console.error("Error en la petición:", error);
+      swal.fire({
+        title: "Error al Registrarse",
+        text: `${e.response.data.error}`,
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     }
   };
   return (

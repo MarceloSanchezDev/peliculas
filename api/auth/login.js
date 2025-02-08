@@ -1,7 +1,7 @@
-import { UserModel } from '../models/turso/users';
-import { validUser } from '../schema/userSchema';
+import { UserModel } from '../models/turso/users.js';
+import { validUser } from '../schema/userSchema.js';
 import jwt from 'jsonwebtoken';
-import { info } from '../utilsBackend/logger';
+import { info } from '../utilsBackend/logger.js';
 
 const SECRET_KEY = process.env.SECRET_KEY;
 

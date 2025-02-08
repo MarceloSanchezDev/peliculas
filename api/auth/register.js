@@ -1,4 +1,4 @@
-import validRegisterUser from '../schema/userSchema.js'
+import {validRegisterUser} from '../schema/userSchema.js'
 import UserModel from '../models/turso/users.js'
 import jwt from 'jsonwebtoken';
 

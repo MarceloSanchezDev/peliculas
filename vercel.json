@@ -1,3 +1,10 @@
 {
-    "rewrites": [{ "source": "/product/:id", "destination": "/api/product" }]
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "/api/$1"},
+      {
+        "source": "/(.*)", 
+        "destination": "/index.html"
+      }
+  ]
+    
 }

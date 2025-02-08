@@ -2,11 +2,11 @@ import { useState } from "react";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const handlerSubmitLogin = async (e) => {
     e.preventDefault();
 
-    console.log("FrontEnd Login", email, user);
+    console.log("FrontEnd Login", email, password);
 
     try {
       const response = await fetch("/api/auth/login", {
@@ -14,7 +14,7 @@ export function LoginForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, user }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
@@ -24,7 +24,7 @@ export function LoginForm() {
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
         alert(
-          `nombre : ${data.email}, apellido : ${data.user} , mensaje : ${data.mensaje}`
+          `email : ${data.email}, password : ${data.password} , mensaje : ${data.mensaje}`
         );
       }
     } catch (error) {
@@ -33,19 +33,19 @@ export function LoginForm() {
   };
   return (
     <form onSubmit={handlerSubmitLogin}>
-      <label htmlFor="nombreLogin">Nombre:</label>
+      <label htmlFor="emailLogin">E-mail:</label>
       <input
-        type="text"
-        name="nombreLogin"
-        id="nombreLogin"
+        type="email"
+        name="emailLogin"
+        id="emailLogin"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="apellidoLogin">Apellido:</label>
+      <label htmlFor="passwordLogin">Password:</label>
       <input
-        type="text"
-        id="apellidoLogin"
-        name="apellidoLogin"
-        onChange={(e) => setUser(e.target.value)}
+        type="password"
+        id="passwordLogin"
+        name="passwordLogin"
+        onChange={(e) => setPassword(e.target.value)}
       />
       <input type="submit" />
     </form>

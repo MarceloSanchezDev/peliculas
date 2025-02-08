@@ -1,7 +1,6 @@
 import { UserModel } from '../models/turso/users.js';
 import { validUser } from '../schema/userSchema.js';
 import jwt from 'jsonwebtoken';
-import { info } from '../utilsBackend/logger.js';
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
@@ -20,22 +19,22 @@ export default async function handler(req, res) {
 
     // Validar datos con el esquema
     const result = validUser(req.body);
-    info('(Controlador) resultado :', result);
+    console.log('(Controlador) resultado :', result);
 
     // Autenticación en el modelo
     const userValid = await UserModel.login({ input: result.data });
-    info('(Controlador)UserValid :', userValid);
+    console.log('(Controlador)UserValid :', userValid);
 
     // Extraer datos del usuario
     const { email, id } = userValid;
-    info('(Controlador)username:', email, 'id:', id);
+    console.log('(Controlador)username:', email, 'id:', id);
 
     // Generar token JWT
     const token = jwt.sign({ id, email }, SECRET_KEY, {
       expiresIn: '2 days'
     });
 
-    info('(Controlador)usuario:', userValid, '(Controlador)token:', token);
+    console.log('(Controlador)usuario:', userValid, '(Controlador)token:', token);
 
     // Enviar respuesta al frontend
     return res.json({ email, token, id });

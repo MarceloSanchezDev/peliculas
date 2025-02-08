@@ -8,10 +8,6 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }
-
-  const { email, user } = req.body;
-  console.log("Datos recibidos en el backend:", email, user);
-
   try {
     if (!SECRET_KEY) {
       throw new Error("SECRET_KEY no está definida en las variables de entorno.");
@@ -24,7 +20,9 @@ export default async function handler(req, res) {
     // Autenticación en el modelo
     const userValid = await UserModel.login({ input: result.data });
     console.log('(Controlador)UserValid :', userValid);
-
+    if(!userValid){
+     return res.status(401).json({userValid})
+    }
     // Extraer datos del usuario
     const { email, id } = userValid;
     console.log('(Controlador)username:', email, 'id:', id);

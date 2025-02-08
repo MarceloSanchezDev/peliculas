@@ -2,11 +2,12 @@ import { useState } from "react";
 
 export function RegisterForm() {
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const handlerSubmitRegister = async (e) => {
     e.preventDefault();
 
-    console.log("FrontEnd Register", email, user);
+    console.log("FrontEnd Register", email, username, password);
 
     try {
       const response = await fetch("/api/auth/register", {
@@ -14,7 +15,7 @@ export function RegisterForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, user }),
+        body: JSON.stringify({ email, username, password }),
       });
 
       if (!response.ok) {
@@ -24,7 +25,7 @@ export function RegisterForm() {
       if (response.ok) {
         console.log("Respuesta del servidor:", data);
         alert(
-          `nombre : ${data.email}, apellido : ${data.user} , mensaje : ${data.mensaje}`
+          `email : ${data.email}, username : ${data.username} , mensaje : ${data.mensaje}`
         );
       }
     } catch (error) {
@@ -33,19 +34,26 @@ export function RegisterForm() {
   };
   return (
     <form onSubmit={handlerSubmitRegister}>
-      <label htmlFor="nombreRegister">Nombre:</label>
+      <label htmlFor="emailRegister">Email : </label>
       <input
-        type="text"
-        name="nombreRegister"
-        id="nombreRegister"
+        type="email"
+        name="emailRegister"
+        id="emailRegister"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="apellidoRegister">Apellido:</label>
+      <label htmlFor="usernameRegister">Username : </label>
       <input
         type="text"
-        id="apellidoRegister"
-        name="apellidoRegister"
-        onChange={(e) => setUser(e.target.value)}
+        id="usernameRegister"
+        name="usernameRegister"
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <label htmlFor="passwordRegister">Password: </label>
+      <input
+        type="password"
+        id="passwordRegister"
+        name="passwordRegister"
+        onChange={(e) => setPassword(e.target.value)}
       />
       <input type="submit" />
     </form>

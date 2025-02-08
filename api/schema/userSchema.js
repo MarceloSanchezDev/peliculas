@@ -26,10 +26,8 @@ const UserLogin = z.object({
 })
 
 export function validUser (object) {
-  info('(SCHEMA) object:', object)
   return UserLogin.safeParse(object)
 }
 export function validRegisterUser (object) {
-  info('(SCHEMA) object:', object)
   return UserRegister.safeParse(object)
 }

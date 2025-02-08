@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error("Error en login:", error);
-    return res.status(500).json({ errorServerless: `Error ${error.name}`, error : error });
+    return res.status(500).json({ errorServerless: `Error ${error.name}`, error : error.message });
   }
 }
 

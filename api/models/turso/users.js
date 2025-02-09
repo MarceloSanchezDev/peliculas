@@ -46,16 +46,21 @@ export class UserModel {
     try {
       // busco al usuario en a base de datos
       const { rows } = await db.execute('SELECT *, id_user as id FROM user WHERE email = ?', [email])
-      if (rows.length === 0) { throw new Error('User not found') }
+      if (rows.length === 0) { 
+        console.warn("⚠️ Usuario no encontrado:", email);
+        return null }
       const validatedUser = rows[0]
       // comparo  la contraseña con la hasheada
       const passwordMach = await bcrypt.compare(password, validatedUser.password)
-      if (!(rows && passwordMach)) { throw new Error('credentials invalid') }
+      if (!passwordMach) {
+        console.warn("⚠️ Contraseña incorrecta para:", email);
+        return null; 
+      }
       // retorno el usuario
       return validatedUser
     } catch (e) {
-      // si hay algun error lo envio al controlador
-      return e
+      console.error("❌ Error en login:", e);
+      return null; 
     }
   }
 }

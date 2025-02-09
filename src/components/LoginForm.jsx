@@ -25,7 +25,7 @@ export function LoginForm() {
         console.log("Respuesta del servidor:", data);
         swal.fire({
           title: "Succes!",
-          text: "Perfecto, estas dentro",
+          text: `Bienvenido ${data.email}!`,
           icon: "success",
           confirmButtonText: "Ok",
         });

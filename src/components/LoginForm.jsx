@@ -17,30 +17,33 @@ export function LoginForm() {
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await response.json(); // Convertir la respuesta a JSON
+
       if (!response.ok) {
         swal.fire({
-          title: "Error al Iniciar Sesion",
-          text: `${response.data.error}`,
+          title: "Error al Iniciar Sesión",
+          text: data.error || "Ocurrió un error inesperado.",
           icon: "error",
           confirmButtonText: "Ok",
         });
-        throw new Error(`Error: ${response.status}`);
+        return; // Detiene la ejecución aquí
       }
-      const data = await response.json(); // Convertir la respuesta a JSON
-      if (response.ok) {
-        console.log("Respuesta del servidor:", data);
-        swal.fire({
-          title: "Succes!",
-          text: `Bienvenido ${data.email}!`,
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-      }
-    } catch (error) {
-      console.error("Error en la petición:", error);
+
+      console.log("✅ Respuesta del servidor:", data);
+
       swal.fire({
-        title: "Error al Iniciar Sesion",
-        text: `${error.response.data.error}`,
+        title: "¡Éxito!",
+        text: `Bienvenido ${data.email}!`,
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+
+      localStorage.setItem("token", data.token);
+    } catch (error) {
+      console.error("❌ Error en la solicitud:", error);
+      swal.fire({
+        title: "Error al Iniciar Sesión",
+        text: "No se pudo conectar con el servidor. Intenta de nuevo.",
         icon: "error",
         confirmButtonText: "Ok",
       });

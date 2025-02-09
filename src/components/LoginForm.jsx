@@ -18,6 +18,12 @@ export function LoginForm() {
       });
 
       if (!response.ok) {
+        swal.fire({
+          title: "Error al Iniciar Sesion",
+          text: `${response.data.error}`,
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json(); // Convertir la respuesta a JSON

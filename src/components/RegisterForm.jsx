@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import swal from "sweetalert2";
 export function RegisterForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const handlerSubmitRegister = async (e) => {
     e.preventDefault();
 
@@ -48,29 +50,38 @@ export function RegisterForm() {
     }
   };
   return (
-    <form onSubmit={handlerSubmitRegister}>
-      <label htmlFor="emailRegister">Email : </label>
-      <input
-        type="email"
-        name="emailRegister"
-        id="emailRegister"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label htmlFor="usernameRegister">Username : </label>
-      <input
-        type="text"
-        id="usernameRegister"
-        name="usernameRegister"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="passwordRegister">Password: </label>
-      <input
-        type="password"
-        id="passwordRegister"
-        name="passwordRegister"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={handlerSubmitRegister}>
+        <label htmlFor="emailRegister">Email : </label>
+        <input
+          type="email"
+          name="emailRegister"
+          id="emailRegister"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="usernameRegister">Username : </label>
+        <input
+          type="text"
+          id="usernameRegister"
+          name="usernameRegister"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label htmlFor="passwordRegister">Password: </label>
+        <input
+          type="password"
+          id="passwordRegister"
+          name="passwordRegister"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input type="submit" />
+      </form>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Volver
+      </button>
+    </>
   );
 }

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import swal from "sweetalert2";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const handlerSubmitLogin = async (e) => {
     e.preventDefault();
 
@@ -50,22 +52,31 @@ export function LoginForm() {
     }
   };
   return (
-    <form onSubmit={handlerSubmitLogin}>
-      <label htmlFor="emailLogin">E-mail:</label>
-      <input
-        type="email"
-        name="emailLogin"
-        id="emailLogin"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label htmlFor="passwordLogin">Password:</label>
-      <input
-        type="password"
-        id="passwordLogin"
-        name="passwordLogin"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={handlerSubmitLogin}>
+        <label htmlFor="emailLogin">E-mail:</label>
+        <input
+          type="email"
+          name="emailLogin"
+          id="emailLogin"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="passwordLogin">Password:</label>
+        <input
+          type="password"
+          id="passwordLogin"
+          name="passwordLogin"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input type="submit" />
+      </form>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Volver
+      </button>
+    </>
   );
 }

@@ -18,24 +18,30 @@ export function RegisterForm() {
         body: JSON.stringify({ email, username, password }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      const data = await response.json(); // Convertir la respuesta a JSON
-      if (response.ok) {
-        console.log("Respuesta del servidor:", data);
         swal.fire({
-          title: "Succes!",
-          text: "Perfecto, estas dentro",
-          icon: "success",
+          title: "Error al Registrarse!",
+          text: data.error || "Ocurrió un error inesperado.",
+          icon: "error",
           confirmButtonText: "Ok",
         });
+        return; // Detiene la ejecución aquí
       }
-    } catch (error) {
-      console.error("Error en la petición:", error);
+      console.log("✅ Respuesta del servidor:", data);
       swal.fire({
-        title: "Error al Registrarse",
-        text: `${e.response.data.error}`,
+        title: "¡Éxito!",
+        text: `Bienvenido ${data.email}!`,
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+      localStorage.setItem("token", data.token);
+    } catch (error) {
+      console.error("❌ Error en la solicitud:", error);
+      swal.fire({
+        title: "Error al Iniciar Sesión",
+        text: "No se pudo conectar con el servidor. Intenta de nuevo.",
         icon: "error",
         confirmButtonText: "Ok",
       });

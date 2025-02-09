@@ -34,7 +34,7 @@ export function LoginForm() {
       console.error("Error en la petición:", error);
       swal.fire({
         title: "Error al Iniciar Sesion",
-        text: `${e.response.data.error}`,
+        text: `${error.response.data.error}`,
         icon: "error",
         confirmButtonText: "Ok",
       });

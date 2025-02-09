@@ -20,8 +20,9 @@ export default async function handler(req, res) {
     // Autenticación en el modelo
     const userValid = await UserModel.login({ input: result.data });
     console.log('(Controlador)UserValid :', userValid);
-    if(!userValid){
-     return res.status(401).json({userValid})
+    if (!userValid) {
+      console.warn("⚠️ Credenciales incorrectas");
+      return res.status(401).json({ error: "Credenciales incorrectas" });
     }
     // Extraer datos del usuario
     const { email, id } = userValid;

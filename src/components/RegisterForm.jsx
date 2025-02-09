@@ -6,7 +6,7 @@ export function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  console.log(process.env.API_KEY);
+  console.log(import.meta.env.API_KEY);
   const handlerSubmitRegister = async (e) => {
     e.preventDefault();
 

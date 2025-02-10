@@ -30,7 +30,8 @@ export default function Detalle({ token, logout }) {
         });
       }
     };
-
+    console.log(movieID);
+    console.log(movie);
     if (movieID) {
       fetchMovieDetail();
       console.log(movieID);

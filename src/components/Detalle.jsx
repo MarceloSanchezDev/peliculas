@@ -44,6 +44,7 @@ export default function Detalle({ token, logout }) {
       {movie ? (
         <div>
           <h2>{movie.title}</h2>
+          <h3>{movie.tagline}</h3>
           <img
             src={
               movie.poster_path
@@ -52,7 +53,14 @@ export default function Detalle({ token, logout }) {
             }
             alt={movie.title}
           />
+          <p>Release: {movie.release_date}</p>
+          <p>Average: {movie.vote_average}</p>
           <p>{movie.overview}</p>
+          <ul>
+            {movie.genres.map((g) => {
+              <li key={g.id}>{g.name}</li>;
+            })}
+          </ul>
         </div>
       ) : (
         <p>Cargando...</p>

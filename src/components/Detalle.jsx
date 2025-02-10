@@ -7,7 +7,7 @@ export default function Detalle({ token, logout }) {
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
   const { movieID } = useParams(); // 🔹 Obtiene el ID desde la URL
-  console.log(movieID);
+
   useEffect(() => {
     if (!token) {
       navigate("/");
@@ -33,8 +33,10 @@ export default function Detalle({ token, logout }) {
 
     if (movieID) {
       fetchMovieDetail();
+      console.log(movieID);
+      console.log(movie);
     }
-  }, [movieID]);
+  }, [movieID, movie]);
 
   return (
     <div>

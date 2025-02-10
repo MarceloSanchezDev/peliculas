@@ -35,7 +35,20 @@ export const Listado = ({ token, logout }) => {
       <h1>Lista de Películas</h1>
       <ul>
         {listado.map((pelicula) => (
-          <li key={pelicula.id}>{pelicula.title}</li>
+          <li key={pelicula.id}>
+            <h1>{pelicula.title}</h1>
+            <img
+              src={
+                pelicula.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`
+                  : "https://via.placeholder.com/500x750?text=No+Image"
+              }
+              alt={pelicula.title || "Movie poster"}
+            />
+            <p className="card-text">
+              {pelicula.overview.substring(0, 100) + "..."}
+            </p>
+          </li>
         ))}
       </ul>
       <button onClick={logout}>Cerrar Sesion</button>

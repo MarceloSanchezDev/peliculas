@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { LoginForm } from "./components/LoginForm";
-import { RegisterForm } from "./components/RegisterForm";
-import { Main } from "./components/Main";
-import { Listado } from "./components/Listado";
+import { LoginForm } from "./components/LoginForm.jsx";
+import { RegisterForm } from "./components/RegisterForm.jsx";
+import { Main } from "./components/Main.jsx";
+import { Listado } from "./components/Listado.jsx";
 import { useEffect, useState } from "react";
-import { Detalle } from "./components/Detalle";
+import { Detalle } from "./components/Detalle.jsx";
 
 export default function App() {
   const [token, setToken] = useState("");

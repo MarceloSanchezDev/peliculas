@@ -1,13 +1,14 @@
 import axios from "axios";
 import swal from "sweetalert2";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Detalle({ token, logout }) {
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
-  const { movieID } = useParams(); // 🔹 Obtiene el ID desde la URL
-  console.log(useParams());
+  let query = new URLSearchParams(window.location.search);
+
+  let movieID = query.get("movieID");
   useEffect(() => {
     if (!token) {
       navigate("/");

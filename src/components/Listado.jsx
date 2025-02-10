@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
-export const Listado = () => {
+export const Listado = ({ token }) => {
   const [listado, setListado] = useState([]);
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
   useEffect(() => {
     const fetchData = async () => {
       try {

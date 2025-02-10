@@ -4,21 +4,24 @@ import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
+import { useState } from "react";
 
 function App() {
+  const [token, setToken] = useState("");
+  setToken(localStorage.getItem("token"));
   return (
     <Router>
       <Routes>
         {/* Ruta para la página principal */}
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main token={token} />} />
 
         {/* Ruta para el login */}
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm token={token} />} />
 
         {/* Ruta para los favoritos */}
-        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/register" element={<RegisterForm token={token} />} />
 
-        <Route path="/listado" element={<Listado />} />
+        <Route path="/listado" element={<Listado token={token} />} />
         {/* Ruta por defecto para cuando no hay coincidencia */}
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>

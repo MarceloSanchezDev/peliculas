@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
-export function Main() {
+export function Main({ token }) {
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (token) {
       navigate("/Listado");
     }
-  }, [navigate]);
+  }, [token, navigate]);
   return (
     <>
       <h1>Hello, Welcome to App Movie</h1>

@@ -10,7 +10,6 @@ export const Listado = ({ token }) => {
     if (!token) {
       navigate("/");
     }
-    window.location.reload();
   }, [token, navigate]);
   useEffect(() => {
     const fetchData = async () => {

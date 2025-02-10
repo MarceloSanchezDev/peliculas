@@ -6,7 +6,6 @@ export function Main({ token }) {
     if (token && token.trim() !== "") {
       navigate("/listado");
     }
-    window.location.reload();
   }, [token, navigate]);
   return (
     <>

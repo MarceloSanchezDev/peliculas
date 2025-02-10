@@ -20,8 +20,8 @@ export default function Buscador() {
       return; // 🔹 Evita que continúe la ejecución si no cumple la condición
     }
 
-    setBuscado(""); // 🔹 Limpia el input después de enviar
     navigate(`/resultado?keyword=${keyword}`);
+    setBuscado(""); // 🔹 Limpia el input después de enviar
   };
 
   return (

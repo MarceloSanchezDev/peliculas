@@ -5,7 +5,7 @@ import { RegisterForm } from "./components/RegisterForm.jsx";
 import { Main } from "./components/Main.jsx";
 import { Listado } from "./components/Listado.jsx";
 import { useEffect, useState } from "react";
-import { Detalle } from "./components/Detalle.jsx";
+import Detalle from "./components/Detalle";
 
 export default function App() {
   const [token, setToken] = useState("");

@@ -18,7 +18,7 @@ function App() {
         {/* Ruta para los favoritos */}
         <Route path="/register" element={<RegisterForm />} />
 
-        <Route path="/" element={<Listado />} />
+        <Route path="/listado" element={<Listado />} />
         {/* Ruta por defecto para cuando no hay coincidencia */}
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>

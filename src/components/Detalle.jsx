@@ -30,19 +30,16 @@ export default function Detalle({ token, logout }) {
         });
       }
     };
-    console.log(movieID);
-    console.log(movie);
+
     if (movieID) {
       fetchMovieDetail();
-      console.log(movieID);
-      console.log(movie);
     }
-  }, [movieID, movie]);
+  }, [movieID]); // ✅ Solo depende de movieID
 
   return (
     <div>
       <h1>Detalle</h1>
-      <button onClick={logout}>Cerrar Sesion</button>
+      <button onClick={logout}>Cerrar Sesión</button>
       {movie ? (
         <div>
           <h2>{movie.title}</h2>

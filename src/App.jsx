@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import { Main } from "./components/Main";
+import { Listado } from "./components/Listado";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         {/* Ruta para los favoritos */}
         <Route path="/register" element={<RegisterForm />} />
 
+        <Route path="/" element={<Listado />} />
         {/* Ruta por defecto para cuando no hay coincidencia */}
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import swal from "sweetalert2";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export const Listado = ({ token, logout }) => {
   const [listado, setListado] = useState([]);
@@ -33,6 +33,7 @@ export const Listado = ({ token, logout }) => {
   return (
     <div>
       <h1>Lista de Películas</h1>
+      <button onClick={logout}>Cerrar Sesion</button>
       <ul>
         {listado.map((pelicula) => (
           <li key={pelicula.id}>
@@ -48,10 +49,15 @@ export const Listado = ({ token, logout }) => {
             <p className="card-text">
               {pelicula.overview.substring(0, 100) + "..."}
             </p>
+            <Link
+              to={`/detalle?MovieID=${pelicula.id}`}
+              className="btn btn-primary"
+            >
+              View Detail
+            </Link>
           </li>
         ))}
       </ul>
-      <button onClick={logout}>Cerrar Sesion</button>
     </div>
   );
 };

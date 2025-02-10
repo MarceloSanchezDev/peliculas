@@ -3,8 +3,8 @@ import { useNavigate } from "react-router";
 export function Main({ token }) {
   const navigate = useNavigate();
   useEffect(() => {
-    if (token) {
-      navigate("/Listado");
+    if (token && token.trim() !== "") {
+      navigate("/listado");
     }
   }, [token, navigate]);
   return (

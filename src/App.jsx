@@ -4,11 +4,16 @@ import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [token, setToken] = useState("");
-  setToken(localStorage.getItem("token"));
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
   return (
     <Router>
       <Routes>

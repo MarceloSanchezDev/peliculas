@@ -7,7 +7,7 @@ export function RegisterForm({ token }) {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    if (token) {
+    if (token && token.trim() !== "") {
       navigate("/Listado");
     }
   }, [token, navigate]);

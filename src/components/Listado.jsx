@@ -50,7 +50,7 @@ export const Listado = ({ token, logout }) => {
               {pelicula.overview.substring(0, 100) + "..."}
             </p>
             <Link
-              to={`/detalle?MovieID=${pelicula.id}`}
+              to={`/detalle?movieID=${pelicula.id}`}
               className="btn btn-primary"
             >
               View Detail

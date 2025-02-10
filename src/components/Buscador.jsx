@@ -8,7 +8,11 @@ export default function Buscador() {
   };
   return (
     <form onSubmit={handlerSearch}>
-      <input type="text" onChange={(e) => setBuscado(e.target.value)} />
+      <input
+        type="text"
+        onChange={(e) => setBuscado(e.target.value)}
+        placeholder="Escribe una palabra clave...."
+      />
       <button type="submit">Buscar</button>
     </form>
   );

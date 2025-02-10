@@ -6,6 +6,7 @@ import { Main } from "./components/Main.jsx";
 import { Listado } from "./components/Listado.jsx";
 import { useEffect, useState } from "react";
 import Detalle from "./components/Detalle";
+import Resultado from "./components/Resultado.jsx";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -46,6 +47,10 @@ export default function App() {
         <Route
           path="/detalle"
           element={<Detalle token={token} logout={logout} />}
+        />
+        <Route
+          path="/resultado"
+          element={<Resultado token={token} logout={logout} />}
         />
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>

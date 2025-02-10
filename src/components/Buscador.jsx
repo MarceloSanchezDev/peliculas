@@ -16,7 +16,7 @@ export default function Buscador() {
       });
     } else {
       e.currentTarget.keyword.value = "";
-      navigate(`/resultados?keyword=${buscado}`);
+      navigate(`/resultado?keyword=${buscado}`);
     }
   };
   return (

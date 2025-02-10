@@ -11,7 +11,6 @@ export function RegisterForm({ token }) {
       navigate("/Listado");
     }
   }, [token, navigate]);
-  console.log(import.meta.env.VITE_API_KEY);
   const handlerSubmitRegister = async (e) => {
     e.preventDefault();
 

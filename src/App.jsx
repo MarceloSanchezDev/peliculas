@@ -19,12 +19,25 @@ export default function App() {
     localStorage.removeItem("token");
     setToken("");
   };
+  const login = (tok) => {
+    localStorage.setItem("token", tok);
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  };
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Main token={token} />} />
-        <Route path="/login" element={<LoginForm token={token} />} />
-        <Route path="/register" element={<RegisterForm token={token} />} />
+        <Route
+          path="/login"
+          element={<LoginForm token={token} login={login} />}
+        />
+        <Route
+          path="/register"
+          element={<RegisterForm token={token} login={login} />}
+        />
         <Route
           path="/listado"
           element={<Listado token={token} logout={logout} />}

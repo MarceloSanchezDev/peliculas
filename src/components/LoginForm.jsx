@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import swal from "sweetalert2";
-export function LoginForm({ token }) {
+export function LoginForm({ token, login }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export function LoginForm({ token }) {
         confirmButtonText: "Ok",
       });
 
-      localStorage.setItem("token", data.token);
+      login(data.token);
     } catch (error) {
       console.error("❌ Error en la solicitud:", error);
       swal.fire({
@@ -82,7 +82,6 @@ export function LoginForm({ token }) {
       >
         Volver
       </button>
-
     </>
   );
 }

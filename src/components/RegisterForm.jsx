@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import swal from "sweetalert2";
-export function RegisterForm({ token }) {
+export function RegisterForm({ token, login }) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +43,7 @@ export function RegisterForm({ token }) {
         icon: "success",
         confirmButtonText: "Ok",
       });
-      localStorage.setItem("token", data.token);
+      login(data.token);
     } catch (error) {
       console.error("❌ Error en la solicitud:", error);
       swal.fire({

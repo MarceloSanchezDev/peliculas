@@ -5,6 +5,9 @@ import jwt from 'jsonwebtoken';
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // ⚡ Permite solicitudes desde tu localhost
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
   }

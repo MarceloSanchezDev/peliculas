@@ -16,13 +16,16 @@ export function LoginForm({ token, login }) {
     console.log("FrontEnd Login", email, password);
 
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://peliculas-murex.vercel.app/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json(); // Convertir la respuesta a JSON
 

@@ -6,32 +6,38 @@ import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
 import { useEffect, useState } from "react";
 
-function App() {
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from "./Main";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import Listado from "./Listado";
+
+export function App() {
   const [token, setToken] = useState("");
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
-  }, [token]);
+  }, []);
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+  };
   return (
     <Router>
       <Routes>
-        {/* Ruta para la página principal */}
         <Route path="/" element={<Main token={token} />} />
-
-        {/* Ruta para el login */}
         <Route path="/login" element={<LoginForm token={token} />} />
-
-        {/* Ruta para los favoritos */}
         <Route path="/register" element={<RegisterForm token={token} />} />
-
-        <Route path="/listado" element={<Listado token={token} />} />
-        {/* Ruta por defecto para cuando no hay coincidencia */}
+        <Route
+          path="/listado"
+          element={<Listado token={token} logout={logout} />}
+        />
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>
     </Router>
   );
 }
-
-export default App;

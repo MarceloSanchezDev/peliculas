@@ -3,7 +3,7 @@ import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
-export const Listado = ({ token }) => {
+export const Listado = ({ token, logout }) => {
   const [listado, setListado] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -29,7 +29,6 @@ export const Listado = ({ token }) => {
 
     fetchData();
   }, []);
-  console.log(listado);
 
   return (
     <div>
@@ -39,13 +38,7 @@ export const Listado = ({ token }) => {
           <li key={pelicula.id}>{pelicula.title}</li>
         ))}
       </ul>
-      <button
-        onClick={() => {
-          localStorage.clear();
-        }}
-      >
-        Cerrar Sesion
-      </button>
+      <button onClick={logout}>Cerrar Sesion</button>
     </div>
   );
 };

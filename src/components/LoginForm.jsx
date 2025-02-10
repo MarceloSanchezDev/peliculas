@@ -17,7 +17,7 @@ export function LoginForm({ token, login }) {
 
     try {
       const response = await fetch(
-        "https://peliculas-murex.vercel.app/api/auth/login",
+        "/api/auth/login",
         {
           method: "POST",
           headers: {

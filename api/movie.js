@@ -1,9 +1,6 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // ⚡ Permite solicitudes desde tu localhost
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   try {
     const apiKey = process.env.API_KEY; // 🔒 Ahora está oculta en el backend
     if (!apiKey) {

@@ -21,7 +21,6 @@ export default function Buscador() {
     }
 
     navigate(`/resultado?keyword=${keyword}`);
-    setBuscado(""); // 🔹 Limpia el input después de enviar
   };
 
   return (

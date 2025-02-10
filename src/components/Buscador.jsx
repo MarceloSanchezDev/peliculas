@@ -15,7 +15,7 @@ export default function Buscador() {
         confirmButtonText: "Ok",
       });
     } else {
-      e.currentTarget.keyword.value = "";
+      setBuscado("");
       navigate(`/resultado?keyword=${buscado}`);
     }
   };

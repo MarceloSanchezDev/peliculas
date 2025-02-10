@@ -5,6 +5,7 @@ import { RegisterForm } from "./components/RegisterForm";
 import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
 import { useEffect, useState } from "react";
+import { Detalle } from "./components/Detalle";
 
 export default function App() {
   const [token, setToken] = useState("");
@@ -41,6 +42,10 @@ export default function App() {
         <Route
           path="/listado"
           element={<Listado token={token} logout={logout} />}
+        />
+        <Route
+          path="/detalle"
+          element={<Detalle token={token} logout={logout} />}
         />
         <Route path="*" element={<div>404 - Página no encontrada</div>} />
       </Routes>

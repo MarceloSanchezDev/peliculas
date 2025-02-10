@@ -39,7 +39,7 @@ export function RegisterForm({ token, login }) {
       console.log("✅ Respuesta del servidor:", data);
       swal.fire({
         title: "¡Éxito!",
-        text: `Bienvenido ${data.email}!`,
+        text: `Bienvenido ${data.username}!`,
         icon: "success",
         confirmButtonText: "Ok",
       });

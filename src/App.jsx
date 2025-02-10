@@ -6,13 +6,6 @@ import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
 import { useEffect, useState } from "react";
 
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Main from "./Main";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
-import Listado from "./Listado";
-
 export function App() {
   const [token, setToken] = useState("");
 

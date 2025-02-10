@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import swal from "sweetalert2";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/Listado");
+    }
+  }, [navigate]);
   const handlerSubmitLogin = async (e) => {
     e.preventDefault();
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import swal from "sweetalert2";
 export function RegisterForm() {
@@ -6,6 +6,12 @@ export function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/Listado");
+    }
+  }, [navigate]);
   console.log(import.meta.env.VITE_API_KEY);
   const handlerSubmitRegister = async (e) => {
     e.preventDefault();

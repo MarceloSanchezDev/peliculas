@@ -4,11 +4,10 @@ export function Main() {
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
     if (token) {
       navigate("/Listado");
     }
-  }, []);
+  }, [navigate]);
   return (
     <>
       <h1>Hello, Welcome to App Movie</h1>

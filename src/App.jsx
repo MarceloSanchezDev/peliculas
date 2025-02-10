@@ -13,7 +13,7 @@ function App() {
     if (storedToken) {
       setToken(storedToken);
     }
-  }, []);
+  }, [token]);
   return (
     <Router>
       <Routes>

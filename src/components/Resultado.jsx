@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert2";
 
-export default function Resultado({ token }) {
+export default function Resultado({ token, logout }) {
   const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
   const query = new URLSearchParams(window.location.search);
@@ -39,6 +39,14 @@ export default function Resultado({ token }) {
   return (
     <div>
       <h1>Resultados de búsqueda</h1>
+      <button onClick={logout}>Cerrar Sesión</button>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Volver
+      </button>
       {movies.length === 0 ? (
         <p>No se encontraron resultados</p>
       ) : (

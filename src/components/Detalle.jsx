@@ -34,7 +34,7 @@ export default function Detalle({ token, logout }) {
     if (movieID) {
       fetchMovieDetail();
     }
-  }, [movieID]); // ✅ Solo depende de movieID
+  }, [movieID]);
 
   return (
     <div>

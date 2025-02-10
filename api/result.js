@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
     const response = await axios.get(endPoint);
 
-    res.status(200).json(response.data); // ✅ Devuelve toda la respuesta de TMDb
+    res.status(200).json(response.data); 
   } catch (error) {
     console.error("Error en la API de películas:", error.response?.data || error.message);
     res.status(500).json({ error: "Error al obtener películas" });

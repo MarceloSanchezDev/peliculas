@@ -16,7 +16,7 @@ export const Listado = ({ token, logout }) => {
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/movies");
-        setListado(res.data); // ✅ Actualiza el estado correctamente
+        setListado(res.data);
       } catch (error) {
         console.error("Error al obtener películas:", error);
         swal.fire({

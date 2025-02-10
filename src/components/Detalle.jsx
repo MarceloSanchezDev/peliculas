@@ -20,7 +20,6 @@ export default function Detalle({ token, logout }) {
       try {
         const res = await axios.get(`/api/movie?movieID=${movieID}`);
         setMovie(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
         swal.fire({
@@ -57,9 +56,9 @@ export default function Detalle({ token, logout }) {
           <p>Average: {movie.vote_average}</p>
           <p>{movie.overview}</p>
           <ul>
-            {movie.genres.map((g) => {
-              <li key={g.id}>{g.name}</li>;
-            })}
+            {movie.genres.map((g) => (
+              <li key={g.id}>{g.name}</li>
+            ))}
           </ul>
         </div>
       ) : (

@@ -6,7 +6,7 @@ import { Main } from "./components/Main";
 import { Listado } from "./components/Listado";
 import { useEffect, useState } from "react";
 
-export function App() {
+export default function App() {
   const [token, setToken] = useState("");
 
   useEffect(() => {

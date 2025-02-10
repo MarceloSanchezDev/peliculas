@@ -41,7 +41,7 @@ export const Listado = ({ token }) => {
       </ul>
       <button
         onClick={() => {
-          localStorage.setItem("token", "");
+          localStorage.clear();
         }}
       >
         Cerrar Sesion

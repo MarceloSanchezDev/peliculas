@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Buscador from "./Buscador.jsx";
 import axios from "axios";
 import swal from "sweetalert2";
 import { Link, useNavigate } from "react-router";
@@ -32,6 +33,7 @@ export const Listado = ({ token, logout }) => {
 
   return (
     <div>
+      <Buscador></Buscador>
       <h1>Lista de Películas</h1>
       <button onClick={logout}>Cerrar Sesion</button>
       <ul>

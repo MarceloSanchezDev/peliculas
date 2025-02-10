@@ -82,13 +82,7 @@ export function LoginForm({ token }) {
       >
         Volver
       </button>
-      <button
-        onClick={() => {
-          localStorage.setItem("token", "");
-        }}
-      >
-        Cerrar Sesion
-      </button>
+
     </>
   );
 }

@@ -39,6 +39,13 @@ export const Listado = ({ token }) => {
           <li key={pelicula.id}>{pelicula.title}</li>
         ))}
       </ul>
+      <button
+        onClick={() => {
+          localStorage.setItem("token", "");
+        }}
+      >
+        Cerrar Sesion
+      </button>
     </div>
   );
 };

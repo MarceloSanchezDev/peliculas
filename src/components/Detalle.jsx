@@ -7,7 +7,7 @@ export default function Detalle({ token, logout }) {
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
   const { movieID } = useParams(); // 🔹 Obtiene el ID desde la URL
-
+  console.log(movieID);
   useEffect(() => {
     if (!token) {
       navigate("/");
@@ -19,6 +19,7 @@ export default function Detalle({ token, logout }) {
       try {
         const res = await axios.get(`/api/movie?movieID=${movieID}`);
         setMovie(res.data);
+        console.log(res.data);
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
         swal.fire({

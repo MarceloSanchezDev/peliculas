@@ -24,14 +24,18 @@ export default function Buscador() {
   };
 
   return (
-    <form onSubmit={handlerSearch}>
+    <form className="d-flex " onSubmit={handlerSearch}>
       <input
+        className="form-control me-2"
         type="text"
-        value={buscado} // 🔹 Controla el estado del input
+        value={buscado}
         onChange={(e) => setBuscado(e.target.value)}
-        placeholder="Escribe una palabra clave..."
+        placeholder="Buscar película..."
+        aria-label="Buscar"
       />
-      <button type="submit">Buscar</button>
+      <button className="btn btn-outline-success" type="submit">
+        Buscar
+      </button>
     </form>
   );
 }

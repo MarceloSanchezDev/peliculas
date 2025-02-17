@@ -55,38 +55,64 @@ export function RegisterForm({ token, login }) {
     }
   };
   return (
-    <>
-      <form onSubmit={handlerSubmitRegister}>
-        <label htmlFor="emailRegister">Email : </label>
-        <input
-          type="email"
-          name="emailRegister"
-          id="emailRegister"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="usernameRegister">Username : </label>
-        <input
-          type="text"
-          id="usernameRegister"
-          name="usernameRegister"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="passwordRegister">Password: </label>
-        <input
-          type="password"
-          id="passwordRegister"
-          name="passwordRegister"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
+    <div className="vh-100 d-flex flex-column justify-content-center align-items-center ">
+      <form
+        className="bg-light p-4 rounded needs-validation shadow"
+        onSubmit={handlerSubmitRegister}
       >
-        Volver
-      </button>
-    </>
+        <h2 className="mb-4 text-center">Registro</h2>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="emailRegister">
+            Email :
+          </label>
+          <input
+            className="form-control"
+            type="email"
+            name="emailRegister"
+            id="emailRegister"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="usernameRegister">
+            Username :
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            id="usernameRegister"
+            name="usernameRegister"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label" htmlFor="passwordRegister">
+            Password:{" "}
+          </label>
+          <input
+            className="form-control"
+            type="password"
+            id="passwordRegister"
+            name="passwordRegister"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="d-grid">
+          <button type="submit" className="btn btn-success">
+            Registrarse
+          </button>
+        </div>
+      </form>
+      <div className="mt-3 text-center">
+        <button
+          className="btn btn-outline-dark"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Volver
+        </button>
+      </div>
+    </div>
   );
 }

@@ -59,9 +59,9 @@ export function LoginForm({ token, login }) {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="vh-100 d-flex flex-column justify-content-center align-items-center">
       <form
-        className="bg-light p-4 rounded needs-validation"
+        className="bg-light p-4 rounded needs-validation shadow"
         onSubmit={handlerSubmitLogin}
         noValidate
       >
@@ -102,7 +102,7 @@ export function LoginForm({ token, login }) {
         </div>
       </form>
 
-      <div className="mt-3 text-center">
+      <div className="mt-3 ">
         <button className="btn btn-outline-dark" onClick={() => navigate("/")}>
           Volver
         </button>

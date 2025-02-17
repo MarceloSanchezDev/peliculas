@@ -5,7 +5,59 @@ import swal from "sweetalert2";
 import { Link, useNavigate } from "react-router";
 
 export const Listado = ({ token, logout }) => {
-  const [listado, setListado] = useState([]);
+  const [listado, setListado] = useState([
+    /*
+        {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    */
+  ]);
   const navigate = useNavigate();
   useEffect(() => {
     if (!token) {
@@ -32,15 +84,19 @@ export const Listado = ({ token, logout }) => {
   }, []);
 
   return (
-    <div>
+    <div className="d-flex flex-column justify-content-center align-items-center">
       <Buscador></Buscador>
       <h1>Lista de Películas</h1>
       <button onClick={logout}>Cerrar Sesion</button>
-      <ul>
+      <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
         {listado.map((pelicula) => (
-          <li key={pelicula.id}>
-            <h1>{pelicula.title}</h1>
+          <li
+            className="card shadow bg-dark text-white"
+            style={{ width: "18rem" }}
+            key={pelicula.id}
+          >
             <img
+              className="card-img-top"
               src={
                 pelicula.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`
@@ -48,15 +104,18 @@ export const Listado = ({ token, logout }) => {
               }
               alt={pelicula.title || "Movie poster"}
             />
-            <p className="card-text">
-              {pelicula.overview.substring(0, 100) + "..."}
-            </p>
-            <Link
-              to={`/detalle?movieID=${pelicula.id}`}
-              className="btn btn-primary"
-            >
-              View Detail
-            </Link>
+            <div className="card-body">
+              <h5 className="card-title">{pelicula.title}</h5>
+              <p className="card-text">
+                {pelicula.overview.substring(0, 100) + "..."}
+              </p>
+              <Link
+                to={`/detalle?movieID=${pelicula.id}`}
+                className="btn btn-outline-light"
+              >
+                View Detail
+              </Link>
+            </div>
           </li>
         ))}
       </ul>

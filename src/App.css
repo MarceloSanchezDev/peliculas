@@ -1,0 +1,5 @@
+html, body {
+    overflow-y: scroll; /* Mantiene el desplazamiento vertical, pero sin barra */
+    scrollbar-width: none; /* Desactiva la barra de desplazamiento en navegadores compatibles */
+  }
+  

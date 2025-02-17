@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router";
 
 export const Listado = ({ token, logout }) => {
   const [listado, setListado] = useState([
+    /*
     {
       id: 1234,
       title: "Pelicula de prueba",
@@ -54,12 +55,11 @@ export const Listado = ({ token, logout }) => {
       poster_path:
         "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
       overview: "overview movie",
-    },
+    },*/
   ]);
   const navigate = useNavigate();
   useEffect(() => {
-    /*
-      if (!token) {
+    if (!token) {
       navigate("/");
     }
   }, [token, navigate]);
@@ -80,7 +80,6 @@ export const Listado = ({ token, logout }) => {
     };
 
     fetchData();
-     */
   }, []);
 
   return (

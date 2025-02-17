@@ -1,33 +1,33 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import swal from "sweetalert2";
+
 export function LoginForm({ token, login }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     if (token && token.trim() !== "") {
       navigate("/Listado");
     }
   }, [token, navigate]);
+
   const handlerSubmitLogin = async (e) => {
     e.preventDefault();
 
     console.log("FrontEnd Login", email, password);
 
     try {
-      const response = await fetch(
-        "/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      const data = await response.json(); // Convertir la respuesta a JSON
+      const data = await response.json();
 
       if (!response.ok) {
         swal.fire({
@@ -36,10 +36,8 @@ export function LoginForm({ token, login }) {
           icon: "error",
           confirmButtonText: "Ok",
         });
-        return; // Detiene la ejecución aquí
+        return;
       }
-
-      console.log("✅ Respuesta del servidor:", data);
 
       swal.fire({
         title: "¡Éxito!",
@@ -59,32 +57,56 @@ export function LoginForm({ token, login }) {
       });
     }
   };
+
   return (
-    <>
-      <form onSubmit={handlerSubmitLogin}>
-        <label htmlFor="emailLogin">E-mail:</label>
-        <input
-          type="email"
-          name="emailLogin"
-          id="emailLogin"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="passwordLogin">Password:</label>
-        <input
-          type="password"
-          id="passwordLogin"
-          name="passwordLogin"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
+    <div className="container mt-5">
+      <form
+        className="bg-light p-4 rounded needs-validation"
+        onSubmit={handlerSubmitLogin}
+        noValidate
       >
-        Volver
-      </button>
-    </>
+        <h2 className="mb-4 text-center">Iniciar Sesión</h2>
+
+        <div className="mb-3">
+          <label htmlFor="emailLogin" className="form-label">
+            E-mail:
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="emailLogin"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="passwordLogin" className="form-label">
+            Contraseña:
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="passwordLogin"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="d-grid">
+          <button type="submit" className="btn btn-success">
+            Ingresar
+          </button>
+        </div>
+      </form>
+
+      <div className="mt-3 text-center">
+        <button className="btn btn-outline-dark" onClick={() => navigate("/")}>
+          Volver
+        </button>
+      </div>
+    </div>
   );
 }

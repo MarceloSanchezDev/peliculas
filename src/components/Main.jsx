@@ -9,7 +9,9 @@ export function Main({ token }) {
   }, [token, navigate]);
   return (
     <>
-      <h1>Hello, Welcome to App Movie</h1>
+      <h1 className="p-3 text-danger-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+        Hello, Welcome to App Movie
+      </h1>
       <button onClick={() => navigate("/login")}>Login</button>
       <button onClick={() => navigate("/register")}>Register</button>
     </>

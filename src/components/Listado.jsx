@@ -92,7 +92,7 @@ export const Listado = ({ token, logout }) => {
         {listado.map((pelicula) => (
           <li
             className="card shadow bg-dark text-white"
-            style={{ width: "18rem", minheight: "40em" }}
+            style={{ width: "18rem", height: "40em" }}
             key={pelicula.id}
           >
             <img

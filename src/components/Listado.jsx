@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router";
 
 export const Listado = ({ token, logout }) => {
   const [listado, setListado] = useState([
-    /*
     {
       id: 1234,
       title: "Pelicula de prueba",
@@ -55,7 +54,7 @@ export const Listado = ({ token, logout }) => {
       poster_path:
         "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
       overview: "overview movie",
-    }, */
+    },
   ]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -64,6 +63,7 @@ export const Listado = ({ token, logout }) => {
     }
   }, [token, navigate]);
   useEffect(() => {
+    /*
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/movies");
@@ -80,6 +80,7 @@ export const Listado = ({ token, logout }) => {
     };
 
     fetchData();
+     */
   }, []);
 
   return (
@@ -117,7 +118,7 @@ export const Listado = ({ token, logout }) => {
         </div>
       </nav>
 
-      <h1>Lista de Películas</h1>
+      <h1>Lista de Películas Nuevas</h1>
       <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
         {listado.map((pelicula) => (
           <li

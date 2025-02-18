@@ -5,7 +5,7 @@ export default function Nav({ logout }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
       <div className="container-fluid">
-        <Link className="navbar-brand" href="#">
+        <Link className="navbar-brand" to={"/"}>
           App Movie
         </Link>
         <button

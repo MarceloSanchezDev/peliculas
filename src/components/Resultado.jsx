@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert2";
-import Buscador from "./Buscador";
 
 export default function Resultado({ token }) {
   const [movies, setMovies] = useState([

@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert2";
+import Buscador from "./Buscador";
 
 export default function Resultado({ token, logout }) {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([
+    /*
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    },
+    {
+      id: 1234,
+      title: "Pelicula de prueba",
+      poster_path:
+        "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
+      overview: "overview movie",
+    }, */
+  ]);
   const navigate = useNavigate();
   const query = new URLSearchParams(window.location.search);
   const keyword = query.get("keyword");
@@ -37,33 +54,78 @@ export default function Resultado({ token, logout }) {
   }, [keyword]);
 
   return (
-    <div>
+    <div className="d-flex flex-column justify-content-center align-items-center">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
+        <div className="container-fluid">
+          <Link to={"/"} className="navbar-brand">
+            App Movie
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarContent">
+            <div className="d-flex flex-grow-1 justify-content-between align-items-center mt-2 mt-lg-0">
+              <div className="d-flex ms-auto align-items-center gap-2">
+                <Buscador />
+                <button
+                  className="btn btn-outline-danger text-nowrap"
+                  onClick={logout}
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
       <h1>Resultados de búsqueda</h1>
-      <button onClick={logout}>Cerrar Sesión</button>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Volver
-      </button>
+
       {movies.length === 0 ? (
         <p>No se encontraron resultados</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {movies.map((movie) => (
-            <li key={movie.id} style={{ marginBottom: "20px" }}>
-              <h2>{movie.title}</h2>
+        <ul
+          className="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4"
+          style={{ listStyle: "none", padding: 0 }}
+        >
+          {movies.map((pelicula) => (
+            <li
+              className="card shadow bg-dark text-white"
+              style={{ width: "18rem", height: "40em" }}
+              key={pelicula.id}
+            >
               <img
+                className="card-img-top"
+                style={{ height: "30rem" }}
                 src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  pelicula.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`
                     : "https://via.placeholder.com/500x750?text=No+Image"
                 }
-                alt={movie.title}
-                style={{ width: "200px", borderRadius: "10px" }}
+                alt={pelicula.title || "Movie poster"}
               />
-              <p>{movie.overview || "Sin descripción disponible."}</p>
+              <div className="card-body">
+                <h5 className="card-title">
+                  {pelicula.title.substring(0, 15) + "..."}
+                </h5>
+                <p className="card-text">
+                  {pelicula.overview.substring(0, 100) + "..."}
+                </p>
+                <Link
+                  to={`/detalle?movieID=${pelicula.id}`}
+                  className="btn btn-outline-light"
+                >
+                  View Detail
+                </Link>
+              </div>
             </li>
           ))}
         </ul>

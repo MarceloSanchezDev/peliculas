@@ -55,7 +55,7 @@ export const Listado = ({ token, logout }) => {
       poster_path:
         "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
       overview: "overview movie",
-    },*/
+    }, */
   ]);
   const navigate = useNavigate();
   useEffect(() => {

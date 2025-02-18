@@ -5,33 +5,17 @@ import { Link, useNavigate } from "react-router-dom";
 import Buscador from "./Buscador";
 
 export default function Detalle({ token, logout }) {
-  const [movie, setMovie] = useState({
-    id: 1234,
-    title: "Pelicula de prueba",
-    tagline: "Pelicula de prueba",
-    release_date: "12/12/12",
-    vote_average: 10.0,
-    poster_path:
-      "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
-    overview: "overview movie",
-    genres: [
-      { id: 1, name: "genre1" },
-      { id: 1, name: "genre1" },
-      { id: 1, name: "genre1" },
-      { id: 1, name: "genre1" },
-      { id: 1, name: "genre1" },
-    ],
-  });
+  const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
-  /*let query = new URLSearchParams(window.location.search);*/
+  let query = new URLSearchParams(window.location.search);
 
-  /*let movieID = query.get("movieID");*/
+  let movieID = query.get("movieID");
   useEffect(() => {
     if (!token) {
       navigate("/");
     }
   }, [token, navigate]);
-  /*
+
   useEffect(() => {
     const fetchMovieDetail = async () => {
       try {
@@ -52,8 +36,6 @@ export default function Detalle({ token, logout }) {
       fetchMovieDetail();
     }
   }, [movieID]);
-
- */
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">

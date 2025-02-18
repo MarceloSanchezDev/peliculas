@@ -86,9 +86,9 @@ export const Listado = ({ token, logout }) => {
     <div className="d-flex flex-column justify-content-center align-items-center">
       <nav className="navbar navbar-expand-lg navbar-light bg-light w-100">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" href="#">
             App Movie
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

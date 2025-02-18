@@ -74,11 +74,11 @@ export default function Detalle({ token, logout }) {
       <h1>Informacion de la Pelicula</h1>
       {movie ? (
         <div className="container mt-4">
-          <div className="d-flex">
-            <div className="me-4">
+          <div className="row">
+            {/* Imagen */}
+            <div className="col-12 col-md-4 mb-3">
               <img
-                className="shadow rounded"
-                style={{ width: "24rem" }}
+                className="img-fluid shadow rounded w-100"
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -87,7 +87,9 @@ export default function Detalle({ token, logout }) {
                 alt={movie.title}
               />
             </div>
-            <div className="d-flex flex-column justify-content-start">
+
+            {/* Información */}
+            <div className="col-12 col-md-8">
               <h2 className="display-5 fw-bold text-dark text-center">
                 <em>Titulo: </em>
                 {movie.title}
@@ -109,7 +111,7 @@ export default function Detalle({ token, logout }) {
               <h4>
                 <em>Generos: </em>
               </h4>
-              <ul className="list-group" style={{ maxWidth: "10rem" }}>
+              <ul className="list-group w-auto mx-auto">
                 {movie.genres.map((g) => (
                   <li
                     key={g.id}

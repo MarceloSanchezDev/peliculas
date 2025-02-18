@@ -1,4 +1,5 @@
 import "./App.css";
+import Nav from "./components/Nav.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LoginForm } from "./components/LoginForm.jsx";
 import { RegisterForm } from "./components/RegisterForm.jsx";
@@ -30,6 +31,7 @@ export default function App() {
   };
   return (
     <Router>
+      {token && <Nav logout={logout}></Nav>}
       <Routes>
         <Route path="/" element={<Main token={token} />} />
         <Route

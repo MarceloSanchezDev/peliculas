@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Buscador from "./Buscador";
 
-export default function Detalle({ token, logout }) {
+export default function Detalle({ token }) {
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
   let query = new URLSearchParams(window.location.search);

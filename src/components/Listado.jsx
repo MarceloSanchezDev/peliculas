@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router";
 
 export const Listado = ({ token }) => {
   const [listado, setListado] = useState([
+    /*
     {
       id: 1234,
       title: "Pelicula de prueba",
@@ -54,6 +55,7 @@ export const Listado = ({ token }) => {
         "https://image.tmdb.org/t/p/w500//tqiHuhjw1WSj9Qr0InJ21AgMrKu.jpg",
       overview: "overview movie",
     },
+     */
   ]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -62,7 +64,6 @@ export const Listado = ({ token }) => {
     }
   }, [token, navigate]);
   useEffect(() => {
-    /*
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/movies");
@@ -79,7 +80,6 @@ export const Listado = ({ token }) => {
     };
 
     fetchData();
-    */
   }, []);
 
   return (

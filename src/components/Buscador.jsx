@@ -8,7 +8,7 @@ export default function Buscador() {
 
   const handlerSearch = (e) => {
     e.preventDefault();
-    const keyword = buscado.trim(); // 🔹 Elimina espacios en blanco extra
+    const keyword = buscado.trim();
 
     if (keyword.length < 4) {
       swal.fire({
@@ -17,10 +17,11 @@ export default function Buscador() {
         icon: "error",
         confirmButtonText: "Ok",
       });
-      return; // 🔹 Evita que continúe la ejecución si no cumple la condición
+      return;
     }
 
     navigate(`/resultado?keyword=${keyword}`);
+    setBuscado("");
   };
 
   return (

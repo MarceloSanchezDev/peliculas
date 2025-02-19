@@ -84,7 +84,7 @@ export const Listado = ({ token }) => {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <h1>Lista de Películas Nuevas</h1>
+      <h1 className="pt-3">Lista de Películas Nuevas</h1>
       <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
         {listado.map((pelicula) => (
           <li

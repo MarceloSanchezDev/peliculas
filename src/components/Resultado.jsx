@@ -54,7 +54,7 @@ export default function Resultado({ token }) {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <h1>Resultados de búsqueda</h1>
+      <h1 className="pt-3">Resultados de búsqueda</h1>
 
       {movies.length === 0 ? (
         <p>No se encontraron resultados</p>

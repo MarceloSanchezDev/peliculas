@@ -39,7 +39,7 @@ export default function Detalle({ token }) {
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <h1>Informacion de la Pelicula</h1>
+      <h1 className="pt-3">Informacion de la Pelicula</h1>
       {movie ? (
         <div className="container mt-4">
           <div className="row">

@@ -94,13 +94,14 @@ export default function Detalle({ token }) {
               {movie.trailerLink && (
                 <div className="trailer">
                   <iframe
-                    width="560"
+                    width="720"
                     height="315"
                     src={movie.trailerLink.replace("watch?v=", "embed/")}
                     title="YouTube video player"
                     frameBorder="0"
                     allowFullScreen
                   ></iframe>
+                  <br />
                   <a
                     href={movie.trailerLink}
                     target="_blank"

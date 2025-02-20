@@ -90,7 +90,7 @@ export default function Detalle({ token }) {
               </ul>
 
               {movie.trailerLink && (
-                <div className="trailer d-flex justify-content-center">
+                <div className="trailer d-flex justify-content-center mb-4">
                   <a
                     className="btn btn-success"
                     href={movie.trailerLink}

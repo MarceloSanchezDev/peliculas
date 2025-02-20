@@ -1,7 +1,7 @@
 import "./App.css";
-import appPeloculasDetails from "./assets/appPeliculasDetails.png";
-import appPeloculasList from "./assets/appPeliculasList.png";
-import appPeloculasRes from "./assets/appPeliculasRes.png";
+import appPeliculasDetails from "./assets/appPeliculasDetails.png";
+import appPeliculasList from "./assets/appPeliculasList.png";
+import appPeliculasRes from "./assets/appPeliculasRes.png";
 import Nav from "./components/Nav.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LoginForm } from "./components/LoginForm.jsx";
@@ -14,7 +14,7 @@ import Resultado from "./components/Resultado.jsx";
 
 export default function App() {
   const [token, setToken] = useState("");
-  const imgs = [appPeloculasDetails, appPeloculasList, appPeloculasRes];
+  const imgs = [appPeliculasDetails, appPeliculasList, appPeliculasRes];
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {

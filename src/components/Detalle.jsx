@@ -22,7 +22,7 @@ export default function Detalle({ token }) {
       try {
         const res = await axios.get(`/api/movie?movieID=${movieID}`);
         setMovie(res.data);
-        console.log(movie);
+        console.log(res.data);
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
         setError("Error al cargar la película");

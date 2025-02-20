@@ -1,8 +1,7 @@
 import axios from "axios";
 import swal from "sweetalert2";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Buscador from "./Buscador";
+import { useNavigate } from "react-router-dom";
 
 export default function Detalle({ token }) {
   const [movie, setMovie] = useState(null);
@@ -22,7 +21,6 @@ export default function Detalle({ token }) {
       try {
         const res = await axios.get(`/api/movie?movieID=${movieID}`);
         setMovie(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
         setError("Error al cargar la película");
@@ -93,21 +91,13 @@ export default function Detalle({ token }) {
 
               {movie.trailerLink && (
                 <div className="trailer">
-                  <iframe
-                    width="720"
-                    height="315"
-                    src={movie.trailerLink.replace("watch?v=", "embed/")}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                  <br />
                   <a
+                    className="btn btn-success"
                     href={movie.trailerLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Ver Trailer Oficial en YOUTUBE
+                    Ver Trailer Oficial
                   </a>
                 </div>
               )}

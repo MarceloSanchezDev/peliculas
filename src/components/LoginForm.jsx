@@ -59,7 +59,7 @@ export function LoginForm({ token, login }) {
   };
 
   return (
-    <div className="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div className="text-dark vh-100 d-flex flex-column justify-content-center align-items-center">
       <form
         className="bg-light p-4 rounded needs-validation shadow"
         onSubmit={handlerSubmitLogin}
@@ -77,6 +77,7 @@ export function LoginForm({ token, login }) {
             id="emailLogin"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="@gmail.com"
             required
           />
         </div>
@@ -91,6 +92,7 @@ export function LoginForm({ token, login }) {
             id="passwordLogin"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="contraseña"
             required
           />
         </div>
@@ -103,7 +105,7 @@ export function LoginForm({ token, login }) {
       </form>
 
       <div className="mt-3 ">
-        <button className="btn btn-outline-dark" onClick={() => navigate("/")}>
+        <button className="btn btn-outline-light" onClick={() => navigate("/")}>
           Volver
         </button>
       </div>

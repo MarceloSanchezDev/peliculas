@@ -55,7 +55,7 @@ export function RegisterForm({ token, login }) {
     }
   };
   return (
-    <div className="vh-100 d-flex flex-column justify-content-center align-items-center ">
+    <div className="text-dark vh-100 d-flex flex-column justify-content-center align-items-center ">
       <form
         className="bg-light p-4 rounded needs-validation shadow"
         onSubmit={handlerSubmitRegister}
@@ -70,6 +70,7 @@ export function RegisterForm({ token, login }) {
             type="email"
             name="emailRegister"
             id="emailRegister"
+            placeholder="@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -82,6 +83,7 @@ export function RegisterForm({ token, login }) {
             type="text"
             id="usernameRegister"
             name="usernameRegister"
+            placeholder="user1234"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -94,6 +96,7 @@ export function RegisterForm({ token, login }) {
             type="password"
             id="passwordRegister"
             name="passwordRegister"
+            placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
@@ -105,7 +108,7 @@ export function RegisterForm({ token, login }) {
       </form>
       <div className="mt-3 text-center">
         <button
-          className="btn btn-outline-dark"
+          className="btn btn-outline-light"
           onClick={() => {
             navigate("/");
           }}

@@ -90,6 +90,15 @@ export default function Detalle({ token }) {
                   </li>
                 ))}
               </ul>
+              {movie.trailerLink && (
+                <a
+                  href={movie.trailerLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver Trailer Oficial
+                </a>
+              )}
             </div>
           </div>
         </div>

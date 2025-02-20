@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   try {
-    const apiKey = process.env.API_KEY; // 🔒 Ahora está oculta en el backend
+    const apiKey = process.env.API_KEY;
     if (!apiKey) {
       return res.status(500).json({ error: "API_KEY no está definida" });
     }

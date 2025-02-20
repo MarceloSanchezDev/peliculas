@@ -6,6 +6,7 @@ import Buscador from "./Buscador";
 
 export default function Detalle({ token }) {
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   let query = new URLSearchParams(window.location.search);
 
@@ -21,8 +22,10 @@ export default function Detalle({ token }) {
       try {
         const res = await axios.get(`/api/movie?movieID=${movieID}`);
         setMovie(res.data);
+        console.log(movie);
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
+        setError("Error al cargar la película");
         swal.fire({
           title: "Error",
           text: "No se pudo cargar la película",
@@ -36,7 +39,8 @@ export default function Detalle({ token }) {
       fetchMovieDetail();
     }
   }, [movieID]);
-
+  if (error) return <p>{error}</p>;
+  if (!movie) return <p>Cargando...</p>;
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
       <h1 className="pt-3">Informacion de la Pelicula</h1>

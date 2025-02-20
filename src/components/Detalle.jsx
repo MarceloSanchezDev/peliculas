@@ -90,14 +90,25 @@ export default function Detalle({ token }) {
                   </li>
                 ))}
               </ul>
+
               {movie.trailerLink && (
-                <a
-                  href={movie.trailerLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver Trailer Oficial
-                </a>
+                <div className="trailer">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={movie.trailerLink.replace("watch?v=", "embed/")}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                  <a
+                    href={movie.trailerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver Trailer Oficial en YOUTUBE
+                  </a>
+                </div>
               )}
             </div>
           </div>

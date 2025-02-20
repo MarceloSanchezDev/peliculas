@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import appPeliculasDetails from "../assets/appPeliculasDetails.png";
+import appPeliculasList from "../assets/appPeliculasList.png";
+import appPeliculasRes from "../assets/appPeliculasRes.png";
 
-export function Main({ token, img }) {
+export function Main({ token }) {
+  const imgs = [appPeliculasDetails, appPeliculasList, appPeliculasRes];
   const navigate = useNavigate();
-  const [imgActual, setImgActual] = useState(img[0]);
+  const [imgActual, setImgActual] = useState(imgs[0]);
   const [aparecer, setAparecer] = useState(true);
+
   const change = () => {
     setAparecer(false);
 
     setTimeout(() => {
       setImgActual((prev) => {
-        const index = img.indexOf(prev);
-        const nextIndex = (index + 1) % img.length;
-        return img[nextIndex];
+        const index = imgs.indexOf(prev);
+        const nextIndex = (index + 1) % imgs.length;
+        return imgs[nextIndex];
       });
 
       setAparecer(true);

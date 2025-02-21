@@ -59,7 +59,7 @@ export default function Detalle({ token }) {
             </div>
             <div className="col-12 col-md-8">
               <h2 className="display-5 fw-bold text-light text-center">
-                {movie.title}
+                {movie.original_title}
               </h2>
               <h3 className="h4 text-light text-center">{movie.title}</h3>
               <p className="text-ligth  bg-dark rounded p-2">

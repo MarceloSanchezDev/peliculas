@@ -113,7 +113,7 @@ export const Listado = ({ token }) => {
                 to={`/detalle?movieID=${pelicula.id}`}
                 className="btn btn-primary  d-flex justify-content-center align-items-center"
               >
-                View Detail
+                Ver Detalles
               </Link>
             </div>
           </li>

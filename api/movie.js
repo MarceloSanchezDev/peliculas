@@ -14,11 +14,11 @@ export default async function handler(req, res) {
     }
 
     // Obtener detalles de la película
-    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=en-US`;
+    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=es-ES`;
     const response = await axios.get(endPoint);
 
     // Obtener videos/trailers de la película
-    const trailerUrl = `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${apiKey}&language=en-US`;
+    const trailerUrl = `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${apiKey}&language=es-ES`;
     const trailerResponse = await axios.get(trailerUrl);
     const videos = trailerResponse.data.results;
 

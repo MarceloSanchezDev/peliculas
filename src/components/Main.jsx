@@ -31,7 +31,7 @@ export function Main({ token }) {
   return (
     <div className="main-container vh-100 d-flex m-3">
       <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
-        <h1 className="mb-4">Hello, Welcome to App Movie 🍿🎬</h1>
+        <h1 className="mb-4">Hola, Bienvenido a App Movie 🍿🎬!</h1>
         <p className="lead mb-4">
           Esta aplicación te permite buscar y guardar tus películas favoritas.
           ¡Inicia sesión o regístrate para comenzar!
@@ -41,13 +41,13 @@ export function Main({ token }) {
             className="btn btn-primary m-2 shadow"
             onClick={() => navigate("/login")}
           >
-            Login
+            Iniciar sesión
           </button>
           <button
             className="btn btn-secondary m-2 shadow"
             onClick={() => navigate("/register")}
           >
-            Register
+            regístrarse
           </button>
         </div>
       </div>

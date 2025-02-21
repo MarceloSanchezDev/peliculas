@@ -1,12 +1,11 @@
+import details from "../assets/AppPeliculasDetails.png";
+import res from "../assets/AppPeliculasRes.png";
+import list from "../assets/AppPeliculasList.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 export function Main({ token }) {
-  const imgs = [
-    new URL("../assets/appPeliculasDetails.png", import.meta.url).href,
-    new URL("../assets/appPeliculasList.png", import.meta.url).href,
-    new URL("../assets/appPeliculasRes.png", import.meta.url).href,
-  ];
+  const imgs = [details, res, list];
   const navigate = useNavigate();
   const [imgActual, setImgActual] = useState(imgs[0]);
   const [aparecer, setAparecer] = useState(true);

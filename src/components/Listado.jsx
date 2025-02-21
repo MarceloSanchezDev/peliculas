@@ -104,7 +104,7 @@ export const Listado = ({ token }) => {
             />
             <div className="card-body">
               <h5 className="card-title">
-                {pelicula.title.substring(0, 15) + "..."}
+                {pelicula.original_title.substring(0, 15) + "..."}
               </h5>
               <p className="card-text">
                 {pelicula.overview.substring(0, 100) + "..."}

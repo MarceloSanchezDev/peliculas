@@ -16,8 +16,6 @@ export function LoginForm({ token, login }) {
   const handlerSubmitLogin = async (e) => {
     e.preventDefault();
 
-    console.log("FrontEnd Login", email, password);
-
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -65,7 +63,7 @@ export function LoginForm({ token, login }) {
         onSubmit={handlerSubmitLogin}
         noValidate
       >
-        <h2 className="mb-4 text-center">Iniciar Sesión</h2>
+        <h2 className="mb-4 text-center">Iniciar Sesión 🍿🎬</h2>
 
         <div className="mb-3">
           <label htmlFor="emailLogin" className="form-label">
@@ -99,14 +97,14 @@ export function LoginForm({ token, login }) {
 
         <div className="d-grid">
           <button type="submit" className="btn btn-success">
-            Ingresar
+            Ingresar 🍿
           </button>
         </div>
       </form>
 
       <div className="mt-3 ">
         <button className="btn btn-outline-light" onClick={() => navigate("/")}>
-          Volver
+          Volver🎬
         </button>
       </div>
     </div>

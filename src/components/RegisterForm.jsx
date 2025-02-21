@@ -60,7 +60,7 @@ export function RegisterForm({ token, login }) {
         className="bg-light p-4 rounded needs-validation shadow"
         onSubmit={handlerSubmitRegister}
       >
-        <h2 className="mb-4 text-center">Registro</h2>
+        <h2 className="mb-4 text-center">Registro 🍿🎬</h2>
         <div className="mb-3">
           <label className="form-label" htmlFor="emailRegister">
             Email :
@@ -102,7 +102,7 @@ export function RegisterForm({ token, login }) {
         </div>
         <div className="d-grid">
           <button type="submit" className="btn btn-success">
-            Registrarse
+            Registrarse 🍿
           </button>
         </div>
       </form>
@@ -113,7 +113,7 @@ export function RegisterForm({ token, login }) {
             navigate("/");
           }}
         >
-          Volver
+          Volver🎬
         </button>
       </div>
     </div>

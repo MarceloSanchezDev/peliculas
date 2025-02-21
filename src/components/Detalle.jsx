@@ -59,13 +59,9 @@ export default function Detalle({ token }) {
             </div>
             <div className="col-12 col-md-8">
               <h2 className="display-5 fw-bold text-light text-center">
-                <em>Titulo: </em>
                 {movie.title}
               </h2>
-              <h3 className="h4 text-light text-center">
-                <em>Tag: </em>
-                {movie.tagline}
-              </h3>
+              <h3 className="h4 text-light text-center">{movie.tagline}</h3>
               <p className="text-ligth  bg-dark rounded p-2">
                 <em>Release: </em> {movie.release_date}
               </p>
@@ -73,7 +69,6 @@ export default function Detalle({ token }) {
                 <em>Average: </em> {movie.vote_average}
               </p>
               <p className="text-light  bg-dark rounded p-2">
-                <em>overview: </em>
                 {movie.overview}
               </p>
               <h4>

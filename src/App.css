@@ -1,5 +1,4 @@
 html, body {
-  font-family: 'Cinzel', serif;
     background-color: black;
     color: #fff;
     overflow-y: scroll; /* Mantiene el desplazamiento vertical, pero sin barra */

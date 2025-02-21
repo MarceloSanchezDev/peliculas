@@ -88,7 +88,7 @@ export const Listado = ({ token }) => {
       <ul className="list-unstyled d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
         {listado.map((pelicula) => (
           <li
-            className="card shadow bg-dark text-white"
+            className="card shadow bg-light text-black"
             style={{ width: "18rem", height: "40em" }}
             key={pelicula.id}
           >
@@ -111,7 +111,7 @@ export const Listado = ({ token }) => {
               </p>
               <Link
                 to={`/detalle?movieID=${pelicula.id}`}
-                className="btn btn-outline-light"
+                className="btn btn-outline-dark"
               >
                 View Detail
               </Link>

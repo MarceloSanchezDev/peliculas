@@ -111,7 +111,7 @@ export const Listado = ({ token }) => {
               </p>
               <Link
                 to={`/detalle?movieID=${pelicula.id}`}
-                className="btn btn-outline-dark"
+                className="btn btn-primary mt-2 dflex justify-content-center"
               >
                 View Detail
               </Link>
